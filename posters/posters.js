@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 
 // Load mongoose
 const mongoose = require('mongoose');
+const Poster = require('./models/Poster')
 
 
 //Connect
@@ -29,3 +30,5 @@ app.use('/posters', posterRoutes);
 app.listen(7777, () => {
 console.log("Up and running at 7777! This is our Poster service");
 })
+
+

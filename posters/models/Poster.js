@@ -3,16 +3,14 @@ const Schema = mongoose.Schema;
 
 const posterSchema = new Schema ({
     mediaID: {
-        type: mongoose.SchemaTypes.ObjectId,
-        required: true
+        // type: mongoose.SchemaTypes.ObjectId,
+        type: String,
     },
-    status: {
+    moment: {
         type: Boolean,
-        required: true
     },
-    poster: {
-        data: Buffer,
-        contentType: String
+    img: {
+        type: String
     }
 })
 
