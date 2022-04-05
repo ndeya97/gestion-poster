@@ -2,9 +2,6 @@ const express = require('express');
 const posterController = require('../controllers/posterController');
 const router = express.Router();
 const multer = require('multer');
-const Poster = require('../models/Poster');
-
-
 
 
 
@@ -33,21 +30,6 @@ const upload =  multer({
 //route that handles all the poster
 router.get("/", posterController.poster_index);
 
-//route that handles new post 
-router.post('/', upload.single('img'), async (req,res) => {
-    console.log(req.file);
-    let poster = new Poster({
-        mediaID: req.body.mediaID,
-        moment: req.body.moment,
-        img: req.file.filename,
-    });
-
-    try {
-        poster = await poster.save(); 
-        res.redirect('/posters');
-    } catch (error) {
-        console.log(error);
-    }
-});
+router.post('/', upload.single('img'), posterController.poster_create_post);
 
 module.exports = router;
