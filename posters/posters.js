@@ -1,14 +1,15 @@
 // Load express
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const posterRoutes = require('./routes/posterRoutes');
+const app = express();
 
 app.use(bodyParser.json());
 
 
 // Load mongoose
 const mongoose = require('mongoose');
+
 const Poster = require('./models/Poster')
 
 
